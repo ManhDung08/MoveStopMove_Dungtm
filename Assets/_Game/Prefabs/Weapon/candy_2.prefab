@@ -113,8 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b2818113a4498428b861de91ceccfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  timetoLive: 4
+  moveSpeed: 2
+  weaponType: 7
+  timetoLive: 2
   rb: {fileID: -3219300879196721685}
 --- !u!54 &-3219300879196721685
 Rigidbody:

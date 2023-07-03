@@ -5,17 +5,21 @@ using UnityEngine;
 public class AttackState : IState
 {
     private float timer;
+    private float randomTime;
     public void OnEnter(Enemy enemy)
     {
-        enemy.Stop();
-        enemy.Attack();
         timer = 0;
+        randomTime = Random.Range(3f, 5f);
     }
 
     public void OnExecute(Enemy enemy)
     {
         timer += Time.deltaTime;
-        if(timer > 2.5f)
+        if(timer < randomTime && enemy.IsHaveTargetInRange())
+        {
+            enemy.Attack();
+        }
+        else
         {
             enemy.ChangeState(new PatrolState());
         }

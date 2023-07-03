@@ -11,7 +11,7 @@ public class IdleState : IState
     {
         enemy.Stop();
         timer = 0;
-        randomTime = Random.Range(2f, 4f);
+        randomTime = Random.Range(1f, 3f);
     }
 
     public void OnExecute(Enemy enemy)
@@ -19,7 +19,7 @@ public class IdleState : IState
         timer += Time.deltaTime;
         if (enemy.IsHaveTargetInRange())
         {
-            enemy.Attack();
+            enemy.ChangeState(new AttackState());
         }
         else if (timer > randomTime)
         {
